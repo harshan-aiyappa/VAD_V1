@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>French Months - Lingotran</title>
+  <link rel="icon" type="image/png" href="attached_assets/favicon1_1759465171852.png">
+  <link href="style.css?v=3" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <div class="logo-section">
+          <img src="attached_assets/favicon1_1759465171852.png" alt="Lingotran Logo" class="logo-img">
+          <div class="title-group">
+            <h1>French Months</h1>
+            <p class="brand">Powered by <strong>Lingotran</strong></p>
+          </div>
+        </div>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+      <p class="subtitle">Speak the English translation of each French month</p>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <p class="score" id="score">Score: 0/12</p>
+    </header>
+
+    <main id="game-container">
+      <div id="start-screen">
+        <h2>Welcome!</h2>
+        <p>This game will help you practice French months.</p>
+        <p><strong>How to play:</strong></p>
+        <ul>
+          <li>You'll see a French month name</li>
+          <li>Click "Start Speaking" and say the English translation</li>
+          <li>Get instant feedback on your answer</li>
+        </ul>
+        <button id="begin-btn" class="btn btn-primary">Begin Game</button>
+      </div>
+
+      <div id="prompt-container" style="display:none;">
+        <div class="question-card">
+          <h2 id="french-word" class="french-word"></h2>
+          <p id="pronunciation-hint" class="pronunciation"></p>
+        </div>
+
+        <div class="mic-section">
+          <div id="mic-animation-container">
+            <div id="mic-animation" class="mic-pulse"></div>
+            <div id="spectrum-container" style="display:none;">
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+            </div>
+            <canvas id="waveform-canvas" style="display:none;"></canvas>
+          </div>
+          <p id="mic-status" class="mic-status">Click button to start</p>
+          <button id="start-btn" class="btn btn-primary">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+              <line x1="12" y1="19" x2="12" y2="23"></line>
+              <line x1="8" y1="23" x2="16" y2="23"></line>
+            </svg>
+            Start Speaking
+          </button>
+        </div>
+
+        <div id="feedback" class="feedback"></div>
+        <button id="next-btn" class="btn btn-secondary" style="display:none;">Next →</button>
+      </div>
+
+      <div id="results-screen" style="display:none;">
+        <h2>Game Complete!</h2>
+        <div id="results-summary"></div>
+        <button id="restart-btn" class="btn btn-primary">Play Again</button>
+        <button id="download-report-btn" class="btn btn-secondary">Download Report</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js?v=3"></script>
+</body>
+</html>
