@@ -115,12 +115,23 @@ class FrenchMonthsGame {
     };
 
     this.recognition.onspeechstart = () => {
-      console.log('Speech detected');
+      console.log('Speech detected by ASR');
       document.getElementById('mic-status').textContent = 'Speech detected...';
+      
+      const questionCard = document.querySelector('.question-card');
+      if (questionCard && !questionCard.classList.contains('vad-speaking')) {
+        questionCard.classList.add('vad-active');
+        questionCard.classList.add('vad-speaking');
+      }
     };
 
     this.recognition.onspeechend = () => {
-      console.log('Speech ended');
+      console.log('Speech ended by ASR');
+      
+      const questionCard = document.querySelector('.question-card');
+      if (questionCard && questionCard.classList.contains('vad-speaking')) {
+        questionCard.classList.remove('vad-speaking');
+      }
     };
   }
 
